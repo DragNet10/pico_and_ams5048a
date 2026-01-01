@@ -17,7 +17,7 @@ This is clunky and in python. Python is slow. C would be better, but this is jus
 | AS5048A Pin       | Raspberry Pi Pico Pin      | Description                                                                 |
 |-------------------|----------------------------|-----------------------------------------------------------------------------|
 | VCC               | 3.3V (Pin 36)             | Power supply (sensor is 3.3V–5V tolerant; connect to 3.3V for logic compatibility) |
-| GND               | GND (e.g., Pin 38)        | Ground                                                                      |
+| GND               | GND (e.g., Pin 23)        | Ground (closest to prevent large ground loop)                             |
 | SCK (CLK)         | GP18 (SPI0 SCK)           | SPI clock signal                                                            |
 | MISO (DO)         | GP16 (SPI0 RX)            | Master In Slave Out – data output from the AS5048A sensor to the Pico        |
 | MOSI (DI)         | GP19 (SPI0 TX)            | Master Out Slave In – command/data input to the AS5048A sensor from the Pico |
@@ -36,4 +36,21 @@ https://thonny.org/
 ```bash
 apt install thonny
 ```
+
+# How to Use in Thonny
+
+1. Connect your Pico and ensure Thonny is set to MicroPython (Raspberry Pi Pico) interpreter.
+2. Copy the script into a new file (e.g., as5048a.py).
+3. Adjust the CS pin if you're using a different GPIO.
+4. Run the script. You should see continuous angle readings in degrees.
+
+# Troubleshooting
+
+## Pico Not Connecting
+![Pico Not Connecting](.documentation_assets/pico_no_connect.png)
+## SPI Bus Not Working
+![SPI Bus Not Working](.documentation_assets/terminal_bad_spi.png)
+## No Magnet On Sensor (Or magnetic field too weak)
+![Weak Magnet](.documentation_assets/terminal_bad_acg.png)
+
 
