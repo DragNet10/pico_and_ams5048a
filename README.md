@@ -1,8 +1,8 @@
 # pico_and_ams5048a
 A diagnostic tool for the AMS5048A magnetic rotation position sensor. This is meant to be a minimal viable product project to test the sensistivity of the AMS5048A for particular applications. It is missing:
-[ ] Limit switch zero
-[ ] Advanced Diagnostics
-[ ] Direct Memory Acess (DMA) embedded C version
+- [ ] Limit switch zero
+- [ ] Advanced Diagnostics
+- [ ] Direct Memory Acess (DMA) embedded C version
 
 This is clunky and in python. Python is slow. C would be better, but this is just a little test.
 
@@ -49,13 +49,18 @@ apt install thonny
 ## Pico Not Connecting
 Thonny is pretty clever. If the pico is plugged in using the mico-USB cable. Thonny should see it. I havne't encountered this issue unless the pico was disconnected.
 ![Pico Not Connecting](.documentation_assets/pico_no_connect.png)
+
 ## SPI Bus Not Working
 There isn't any smarts when it comes to debugging the SPI connection. It just reads the SPI register data and assumes you're good. In practice you'd compare the diagnostics output with expected values and throw an error if data is bad.
+
 ![SPI Bus Not Working](.documentation_assets/terminal_bad_spi.png)
 ## No Magnet On Sensor (Or magnetic field too weak)
 The AS5048A has a nice diagnostic register (see the AS5048A datasheet page 17.)
 
-The Automatic Gain Control (AGC) register contains how strong the magnetic field is. A good value is close to 0. Bad values I've seen are around 60. Proper firmware would find a way to ouptu errors if AGC was too high for too long (weakened magnet, broken sensor, etc.)
+The Automatic Gain Control (AGC) register contains how strong the magnetic field is. A good value is close to 60 or more (max is 255). Bad values I've seen are around 0. Proper firmware would find a way to ouptut errors if AGC was too high for too long (weakened magnet, broken sensor, etc.)
 ![Weak Magnet](.documentation_assets/terminal_bad_acg.png)
 
+# Alternatives for Host PC
+I bet a pyserial package would be easiest to run on the host PC for a custom application. It's a little out of scope for this project.
 
+Putty would be good to diagnose connection using the same serial settings. The only down side is other apps like putty aren't "smart" when it comes to determining which device is connected.
