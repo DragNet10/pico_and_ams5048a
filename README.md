@@ -1,8 +1,8 @@
 # pico_and_ams5048a
 A diagnostic tool for the AMS5048A magnetic rotation position sensor. This is meant to be a minimal viable product project to test the sensistivity of the AMS5048A for particular applications. It is missing:
-- [ ] Limit switch zero
-- [ ] Advanced Diagnostics
-- [ ] Direct Memory Acess (DMA) embedded C version
+ - [ ] Limit switch zero
+ - [ ] Advanced Diagnostics
+ - [ ] Direct Memory Acess (DMA) embedded C version
 
 This is clunky and in python. Python is slow. C would be better, but this is just a little test.
 
