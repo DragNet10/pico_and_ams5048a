@@ -47,10 +47,15 @@ apt install thonny
 # Troubleshooting
 
 ## Pico Not Connecting
+Thonny is pretty clever. If the pico is plugged in using the mico-USB cable. Thonny should see it. I havne't encountered this issue unless the pico was disconnected.
 ![Pico Not Connecting](.documentation_assets/pico_no_connect.png)
 ## SPI Bus Not Working
+There isn't any smarts when it comes to debugging the SPI connection. It just reads the SPI register data and assumes you're good. In practice you'd compare the diagnostics output with expected values and throw an error if data is bad.
 ![SPI Bus Not Working](.documentation_assets/terminal_bad_spi.png)
 ## No Magnet On Sensor (Or magnetic field too weak)
+The AS5048A has a nice diagnostic register (see the AS5048A datasheet page 17.)
+
+The Automatic Gain Control (AGC) register contains how strong the magnetic field is. A good value is close to 0. Bad values I've seen are around 60. Proper firmware would find a way to ouptu errors if AGC was too high for too long (weakened magnet, broken sensor, etc.)
 ![Weak Magnet](.documentation_assets/terminal_bad_acg.png)
 
 
