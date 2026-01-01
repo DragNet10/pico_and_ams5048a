@@ -8,7 +8,7 @@ This is clunky and in python. Python is slow. C would be better, but this is jus
 
 ## Hardware Connections
 
-![Pico Connected to the AS5048A](.documentation_assets/spiConnections.png)
+![Pico Connected to the AS5048A](.documentation_assets/spi_conn.png)
 
 
 
